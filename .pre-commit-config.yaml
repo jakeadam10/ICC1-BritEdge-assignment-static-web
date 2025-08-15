@@ -1,0 +1,8 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: check-json          # Validates JSON syntax
+      - id: check-yaml          # Validates YAML syntax
+      - id: end-of-file-fixer   # Ensures file ends with newline
+      - id: trailing-whitespace # Removes trailing whitespace
