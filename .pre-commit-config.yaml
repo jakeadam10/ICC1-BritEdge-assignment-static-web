@@ -6,3 +6,10 @@ repos:
       - id: check-yaml          # Validates YAML syntax
       - id: end-of-file-fixer   # Ensures file ends with newline
       - id: trailing-whitespace # Removes trailing whitespace
+      - id: check-added-large-files
+        args: ["--maxkb=500"]
+
+  - repo: https://github.com/svenkreiss/html5validator
+    rev: v0.4.2
+    hooks:
+      - id: html5validator
