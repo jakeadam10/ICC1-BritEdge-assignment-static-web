@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Application Insights (client-side) -->
+    <script src="https://js.monitor.azure.com/scripts/b/ai.2.min.js"></script>
+    <script>
+    window.appInsights = window.appInsights || function (cfg) {
+        function add(fn){ ai[fn] = function(){ var a = arguments; ai.queue.push(function(){ ai[fn].apply(ai, a); }); }; }
+        var ai = { config: cfg, queue: [] }, d = document;
+        setTimeout(function(){ var s = d.createElement("script"); s.src = "https://js.monitor.azure.com/scripts/b/ai.2.min.js"; d.head.appendChild(s); });
+        ["trackPageView","trackException","trackEvent","trackTrace","trackDependencyData"].forEach(add);
+        return ai;
+    }({
+        connectionString: "InstrumentationKey=d8e06342-882d-4717-8648-072d3772ca33;IngestionEndpoint=https://westeurope-5.in.applicationinsights.azure.com/;LiveEndpoint=https://westeurope.livediagnostics.monitor.azure.com/;ApplicationId=8118e0c4-774d-4f7b-83cd-31df2a57ac54"
+    });
+    appInsights.trackPageView();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BritEdge Solutions Ltd.</title>
